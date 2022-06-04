@@ -8,7 +8,7 @@ class FlutterAgent : Agent() {
         speed = .0
     }
     override fun pluginUpdate() {
-        val childCount = children.size
+       /* val childCount = children.size
         if (childCount < 200){
             val newChild =  FlutterChild()
 
@@ -23,7 +23,7 @@ class FlutterAgent : Agent() {
 
         }
 
-        TODO("Not yet implemented")
+        TODO("Not yet implemented")*/
     }
     companion object{
         val children = mutableListOf<FlutterChild>()
