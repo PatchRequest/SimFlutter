@@ -2,7 +2,7 @@ import dhbw.sose2022.softwareengineering.airportagentsim.simulation.api.geometry
 import dhbw.sose2022.softwareengineering.airportagentsim.simulation.api.simulation.entity.Agent
 import kotlin.random.Random
 
-class FlutterChild (val x:Int, val y:Int, val w:Int, val h:Int) : Agent() {
+class FlutterChild (val x:java.lang.Integer, val y:java.lang.Integer, val w:java.lang.Integer, val h:java.lang.Integer) : Agent() {
     init {
         speed = 1.0
     }
@@ -15,8 +15,8 @@ class FlutterChild (val x:Int, val y:Int, val w:Int, val h:Int) : Agent() {
 
     override fun onBirth() {
         super.onBirth()
-        position = Point(x,y)
-        width = w
-        height = h
+        position = Point(x as Int,y as Int)
+        width = w as Int
+        height = h as Int
     }
 }
