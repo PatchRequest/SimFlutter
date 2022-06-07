@@ -1,22 +1,33 @@
+import dhbw.sose2022.softwareengineering.airportagentsim.simulation.api.AirportAgentSimulation
 import dhbw.sose2022.softwareengineering.airportagentsim.simulation.api.geometry.Point
 import dhbw.sose2022.softwareengineering.airportagentsim.simulation.api.simulation.entity.Agent
 import kotlin.random.Random
 
-class FlutterChild (val x:java.lang.Integer, val y:java.lang.Integer, val w:java.lang.Integer, val h:java.lang.Integer) : Agent() {
+class FlutterChild () : Agent() {
+    private val logger = AirportAgentSimulation.getLogger(plugin)
     init {
-        speed = 1.0
+        speed = 500.0
     }
     override fun pluginUpdate() {
         val worldHeight = world.height
         val worldWidth = world.width
-        val random = Point(Random.nextInt(0, worldHeight), Random.nextInt(0, worldWidth))
-        turn(random)
+        speed = 50.0
+        counter++
+        if ((counter % 1000) == 0) {
+            logger.info("Mew Direction!")
+            val random = Point(Random.nextInt(0,worldWidth),Random.nextInt(0,worldHeight))
+            turn(random)
+
+        }
+
+
+    }
+    companion object{
+        var counter = 0
+
+
+
     }
 
-    override fun onBirth() {
-        super.onBirth()
-        position = Point(x as Int,y as Int)
-        width = w as Int
-        height = h as Int
-    }
+
 }
